@@ -1,0 +1,73 @@
+html:
+  page_title: Change Your Site-Wide Password
+
+
+ldap:
+  # These two are mandatory.
+  host: localhost
+  port: 636
+
+  # Uncomment to use SSL.
+  #use_ssl: true
+
+  # Uncomment to have an user's DN derived directly from his username
+  # (preferred, whenever possible).
+  #user_dn = uid={username},ou=people,dc=example,dc=com
+  # Or search for it.
+  #user_search_base = ou=people,dc=example,dc=com
+  #user_search_filter = (uid={username})
+  #   Search permissions are required for this account.
+  #   It can either include {username} or be set to a fixed,
+  #   administrative account.
+  #   Leave unset in order to perform searching anonymously.
+  #user_search_bind_dn = cn=admin,dc=example,dc=com
+  #   When this is not specified, the users old password is used.
+  #user_search_bind_pass = admin
+
+  # User to bind as to the LDAP server for executing the password change.
+  # It can either include {username} to bind as the user wishing to change
+  # his password or be set to a fixed, administrative account.
+  # When it's not set, the determined user's DN will be used.
+  #bind_dn: cn=admin,dc=example,dc=com
+  # When this is not specified, the users old password is used.
+  #bind_pass: admin
+
+  # Uncomment for AD / Samba 4.
+  #type: ad
+  #user_search_bind_dn: {username}@example.com
+  #user_search_filter: (sAMAccountName={username})
+  #bind_dn: {username}@example.com
+
+
+# Optionally, configure a password policy.
+policy:
+  # Uncomment to enable the password policy.
+  #enable: true
+
+  # Restrict password length.
+  #min_length: 8
+  #max_length: 30
+
+  # How many characters of each category to require.
+  #min_lowers: 1
+  #min_uppers: 1
+  #min_digits: 1
+  #min_specials: 1
+  # Note: The value is enclosed in "" to mark it as a string in YAML.
+  #specials: ".:,;-_! %"
+
+  # Uncomment to only allow lowercases, uppercases, digits and the listed
+  # special characters.
+  #forbid_others: true
+  # Uncomment to reject passwords which contain the username
+  # (case-insensitive).
+  #forbid_username: true
+  # Uncomment to forbid re-using the previous password.
+  #forbid_reuse: true
+
+
+# Settings for running the bottle webserver - don't use for production!
+#server:
+#  server: auto
+#  host: localhost
+#  port: 8080

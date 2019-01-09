@@ -1,0 +1,16 @@
+version: "3.3"
+
+services:
+  passui:
+    build:
+      context: .
+    #environment:
+      # Uncomment to enable bottle debug mode.
+      # This will show full tracebacks in the browser on errors.
+      #DEBUG: "true"
+    image: ldap-passui:latest
+    ports:
+    - 8080:80
+    volumes:
+    - /etc/localtime:/etc/localtime:ro
+    - ./config.yaml:/opt/ldap-passui/config.yaml:ro

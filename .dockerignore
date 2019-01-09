@@ -1,0 +1,10 @@
+LICENSE
+README.*
+
+.git*
+
+.dockerignore
+Dockerfile
+docker-compose.*
+
+config.yaml.example

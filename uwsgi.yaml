@@ -1,0 +1,24 @@
+uwsgi:
+  plugin: http,python3
+  # Mount the app to the webserver's root.
+  mount: /=app.py
+  # Serve static files directly via uWSGI.
+  static-map: /static=static
+
+  # Drop unneeded privileges.
+  master: true
+  master-as-root: true
+  uid: nobody
+  gid: nogroup
+  # uWSGI <2.1 interprets SIGTERM, which is used by Docker, differently.
+  die-on-term: true
+
+  # Serve via uWSGI HTTP engine, can be used in production when configured
+  # properly.
+  http: 0.0.0.0:80
+
+  # Scale to your needs.
+  http-processes: 2
+  processes: 2
+  threads: 4
+  offload-threads: 4
