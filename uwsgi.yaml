@@ -1,5 +1,5 @@
 uwsgi:
-  plugin: http,python3
+  plugin: http,python
   # Mount the app to the webserver's root.
   mount: /=app.py
   # Serve static files directly via uWSGI.

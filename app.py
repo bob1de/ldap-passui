@@ -115,7 +115,7 @@ def read_config():
         "CONFIG_FILE", os.path.join(BASE_DIR, "config.yaml")
     )
     with open(config_file) as file:
-        config = yaml.load(file)
+        config = yaml.load(file, Loader=yaml.SafeLoader)
 
     return CONFIG_SCHEMA(config)
 
