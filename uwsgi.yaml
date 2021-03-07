@@ -18,7 +18,6 @@ uwsgi:
   http: 0.0.0.0:80
 
   # Scale to your needs.
-  http-processes: 2
   processes: 2
   threads: 4
-  offload-threads: 4
+  offload-threads: 1
